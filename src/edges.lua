@@ -62,14 +62,14 @@ end
 function table.values(t, f)
 	if f then
 		for _, v in pairs(t) do
-			f(k)
+			f(v)
 		end
 	else
 		local res = {}
 		local idx = 1
 
 		for _, v in pairs(t) do
-			res[idx] = k
+			res[idx] = v
 			idx = idx + 1
 		end
 		return res
@@ -88,6 +88,7 @@ function object.methods(t, f)
 end
 
 function object.fields(t, f)
+	f = f or print
 	for k, v in pairs(t) do
 		if type(v) ~= "function" then
 			f(k)
